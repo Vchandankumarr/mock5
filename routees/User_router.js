@@ -58,10 +58,10 @@ Userrouter.post("/login", async (req, res) => {
         // result == true
         if (result) {
           var token = jwt.sign({ userID: user[0]._id }, process.env.token);
-
-          res.send({ token, res: "Login sucessfull" });
+          res.status(200).send({ msg: "Login sucessfull",token});
+          
         } else {
-          res.send("Wrong credentials");
+          res.send({msg:"Wrong credentials"});
         }
       });
     } else {
