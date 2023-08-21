@@ -88,6 +88,17 @@ Userrouter.post("/onboard",authMiddleware, async (req, res) => {
   } catch (error) {}
 });
 
+
+Userrouter.get("/doctors",authMiddleware, async(req,res)=>{
+  try {
+    let doctors=await Doctormodel.find()
+    res.send(doctors)
+    
+  } catch (error) {
+    
+  }
+})
+
 module.exports = {
   Userrouter,
 };
